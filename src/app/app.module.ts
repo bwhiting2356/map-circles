@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { AgmCoreModule } from '@agm/core';
 
+import { environment} from "../../environent";
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,7 @@ import { AgmCoreModule } from '@agm/core';
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
-      apiKey: 'YOUR_KEY'
+      apiKey: environment.googleMapsKey
     })
   ],
   providers: [],

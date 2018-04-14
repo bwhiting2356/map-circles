@@ -1,3 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<agm-map></agm-map>
+<agm-map
+  [zoom]="12"
+  [latitude]="40.682051"
+  [longitude]="-73.972178">
+  <agm-circle *ngFor="let job of jobs | async; let i = index"
+              [fillColor]="'black'"
+              [radius]="hoverIndex === i ? 500 : 400"
+              [latitude]="job.lat"
+              [longitude]="job.lng">
+  </agm-circle>
+</agm-map>
+<div>
+  <div *ngFor="let job of jobs | async; let hIndex = index"
+       (mouseenter)="onMouseenter(hIndex)"
+       (mouseleave)="onMouseleave()"
+       class="job">{{ job.desc }}</div>
+</div>
 
